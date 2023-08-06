@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+if [ ! -z "$DYNO" ]; then
+  # setup config files
+  cp .sequelizerc.example .sequelizerc
+
+    cat << EOF > config.json
+
+{
+  "production": {
+  }
+}
+
+EOF
+
+fi
