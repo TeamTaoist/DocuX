@@ -37,6 +37,7 @@
     "@hackmd/meta-marked": "~0.5.0",
     "@hackmd/pandoc.js": "^0.1.9",
     "@passport-next/passport-openid": "~1.0.0",
+    "@pinata/sdk": "^2.1.0",
     "archiver": "~3.1.1",
     "async": "^3.2.4",
     "azure-storage": "~2.10.3",
