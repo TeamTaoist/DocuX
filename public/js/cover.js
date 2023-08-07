@@ -124,24 +124,6 @@ $('#connectWallet').click(async () => {
   const { nonce } = await $.post(`${serverurl}/auth/ethereum/challenge`)
   console.log(nonce)
 
-  // const data = {
-  //   email: 'wendy8449@gmail.com',
-  //   password: '123456'
-  // }
-  //
-  // console.log( data)
-  //
-  // $.post(`${serverurl}/login`, {
-  //   email: 'wendy8449@gmail.com',
-  //   password: '123456'
-  // })
-  //   .done(data => {
-  //     console.log('======data', data)
-  //     if (data) {
-  //       window.location.reload()
-  //     }
-  //   })
-
   const { ethereum } = window
   if (typeof ethereum === 'undefined') {
     return {
@@ -153,7 +135,7 @@ $('#connectWallet').click(async () => {
   const _account = accounts[0]
 
   const accountAddress = ethers.utils.getAddress(_account)
-  console.error('~~~~ accountAddress', accountAddress, host, accountAddress)
+  console.error('~~~~ accountAddress', accountAddress, accountAddress)
   const { host, origin } = window.location
   const siweMessage = new SiweMessage({
     domain: host,
@@ -172,7 +154,6 @@ $('#connectWallet').click(async () => {
 
     // sessionStorage.setItem('signData', signData)
     await PostMsg(signData, signMsg)
-    console.log('signData:', signData)
   } catch (error) {
     console.error('sign failed', error)
   }
@@ -180,17 +161,34 @@ $('#connectWallet').click(async () => {
 
 const PostMsg = async (signData, signMsg) => {
   console.log('PostMsg==============:', signData, signMsg)
-  await $.post(`${serverurl}/auth/ethereum`, {
-    message: signMsg,
-    signature: signData
-  })
-    .done(data => {
+  // await $.post(`${serverurl}/auth/ethereum`, {
+  //   message: signMsg,
+  //   signature: signData
+  // })
+  //   .done(data => {
+  //     if (data) {
+  //       console.log('====PostMsg==data', data)
+  //       // window.location.reload()
+  //     }
+  //   })
 
-      if (data) {
-        console.log('====PostMsg==data', data)
-        // window.location.reload()
-      }
-    })
+  $.ajax({
+    type: 'POST',
+    url: `${serverurl}/auth/ethereum`,
+    // The key needs to match your method's input parameter (case-sensitive).
+    data: JSON.stringify({
+      message: signMsg,
+      signature: signData
+    }),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    success: function (data) {
+      console.log('====PostMsg==data', data)
+    },
+    error: function (errMsg) {
+      console.log('====PostMsg==errMsg', errMsg)
+    }
+  })
 }
 
 function checkHistoryList () {
