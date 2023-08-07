@@ -28,6 +28,7 @@ import List from 'list.js'
 import unescapeHTML from 'lodash/unescape'
 import { ethers } from 'ethers'
 import { SiweMessage } from 'siwe'
+import axios from 'axios'
 
 require('./locale')
 
@@ -120,6 +121,27 @@ $('#metamask').click(function () {
   console.error('~~~~ connect_wallet')
 })
 $('#connectWallet').click(async () => {
+  const { nonce } = await $.post(`${serverurl}/auth/ethereum/challenge`)
+  console.log(nonce)
+
+  // const data = {
+  //   email: 'wendy8449@gmail.com',
+  //   password: '123456'
+  // }
+  //
+  // console.log( data)
+  //
+  // $.post(`${serverurl}/login`, {
+  //   email: 'wendy8449@gmail.com',
+  //   password: '123456'
+  // })
+  //   .done(data => {
+  //     console.log('======data', data)
+  //     if (data) {
+  //       window.location.reload()
+  //     }
+  //   })
+
   const { ethereum } = window
   if (typeof ethereum === 'undefined') {
     return {
@@ -127,7 +149,7 @@ $('#connectWallet').click(async () => {
     }
   }
   const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-  // sessionStorage.setItem('account',accounts[0]);
+  sessionStorage.setItem('account', accounts[0])
   const _account = accounts[0]
 
   const accountAddress = ethers.utils.getAddress(_account)
@@ -136,23 +158,40 @@ $('#connectWallet').click(async () => {
   const siweMessage = new SiweMessage({
     domain: host,
     address: accountAddress,
-    statement: 'Welcome to!',
+    statement: 'Login to DocuX',
     uri: origin,
     version: '1',
-    chainId: '1'
+    chainId: '1',
+    nonce
   })
 
-  console.log('siweMessage:', siweMessage)
   const signMsg = siweMessage.prepareMessage()
   const _provider = new ethers.providers.Web3Provider(ethereum)
   try {
     const signData = await _provider.send('personal_sign', [signMsg, accountAddress])
+
+    // sessionStorage.setItem('signData', signData)
+    await PostMsg(signData, signMsg)
     console.log('signData:', signData)
   } catch (error) {
     console.error('sign failed', error)
   }
-
 })
+
+const PostMsg = async (signData, signMsg) => {
+  console.log('PostMsg==============:', signData, signMsg)
+  await $.post(`${serverurl}/auth/ethereum`, {
+    message: signMsg,
+    signature: signData
+  })
+    .done(data => {
+
+      if (data) {
+        console.log('====PostMsg==data', data)
+        // window.location.reload()
+      }
+    })
+}
 
 function checkHistoryList () {
   if ($('#history-list').children().length > 0) {
