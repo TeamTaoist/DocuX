@@ -26,6 +26,8 @@ import {
 import { saveAs } from 'file-saver'
 import List from 'list.js'
 import unescapeHTML from 'lodash/unescape'
+import { ethers } from 'ethers'
+import { SiweMessage } from 'siwe'
 
 require('./locale')
 
@@ -116,6 +118,40 @@ $('.ui-history').click(() => {
 
 $('#metamask').click(function () {
   console.error('~~~~ connect_wallet')
+})
+$('#connectWallet').click(async () => {
+  const { ethereum } = window
+  if (typeof ethereum === 'undefined') {
+    return {
+      type: 'error'
+    }
+  }
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+  // sessionStorage.setItem('account',accounts[0]);
+  const _account = accounts[0]
+
+  const accountAddress = ethers.utils.getAddress(_account)
+  console.error('~~~~ accountAddress', accountAddress, host, accountAddress)
+  const { host, origin } = window.location
+  const siweMessage = new SiweMessage({
+    domain: host,
+    address: accountAddress,
+    statement: 'Welcome to!',
+    uri: origin,
+    version: '1',
+    chainId: '1'
+  })
+
+  console.log('siweMessage:', siweMessage)
+  const signMsg = siweMessage.prepareMessage()
+  const _provider = new ethers.providers.Web3Provider(ethereum)
+  try {
+    const signData = await _provider.send('personal_sign', [signMsg, accountAddress])
+    console.log('signData:', signData)
+  } catch (error) {
+    console.error('sign failed', error)
+  }
+
 })
 
 function checkHistoryList () {
