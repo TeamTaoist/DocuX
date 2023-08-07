@@ -121,9 +121,6 @@ $('#metamask').click(function () {
   console.error('~~~~ connect_wallet')
 })
 $('#connectWallet').click(async () => {
-  const { nonce } = await $.post(`${serverurl}/auth/ethereum/challenge`)
-  console.log(nonce)
-
   const { ethereum } = window
   if (typeof ethereum === 'undefined') {
     return {
@@ -143,8 +140,7 @@ $('#connectWallet').click(async () => {
     statement: 'Login to DocuX',
     uri: origin,
     version: '1',
-    chainId: '1',
-    nonce
+    chainId: '1'
   })
 
   const signMsg = siweMessage.prepareMessage()
@@ -161,34 +157,16 @@ $('#connectWallet').click(async () => {
 
 const PostMsg = async (signData, signMsg) => {
   console.log('PostMsg==============:', signData, signMsg)
-  // await $.post(`${serverurl}/auth/ethereum`, {
-  //   message: signMsg,
-  //   signature: signData
-  // })
-  //   .done(data => {
-  //     if (data) {
-  //       console.log('====PostMsg==data', data)
-  //       // window.location.reload()
-  //     }
-  //   })
-
-  $.ajax({
-    type: 'POST',
-    url: `${serverurl}/auth/ethereum`,
-    // The key needs to match your method's input parameter (case-sensitive).
-    data: JSON.stringify({
-      message: signMsg,
-      signature: signData
-    }),
-    contentType: 'application/json; charset=utf-8',
-    dataType: 'json',
-    success: function (data) {
-      console.log('====PostMsg==data', data)
-    },
-    error: function (errMsg) {
-      console.log('====PostMsg==errMsg', errMsg)
-    }
+  await $.post(`${serverurl}/auth/ethereum`, {
+    message: signMsg,
+    signature: signData
   })
+    .done(data => {
+      if (data) {
+        console.log('====PostMsg==data', data)
+        window.location.reload()
+      }
+    })
 }
 
 function checkHistoryList () {
