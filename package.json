@@ -77,6 +77,7 @@
     "passport": "^0.6.0",
     "passport-bitbucket-oauth2": "~0.1.2",
     "passport-dropbox-oauth2": "~1.1.0",
+    "passport-ethereum-siwe": "^0.1.0",
     "passport-facebook": "~2.1.1",
     "passport-github": "~1.1.0",
     "passport-gitlab2": "~4.0.0",
