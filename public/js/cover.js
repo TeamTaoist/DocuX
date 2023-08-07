@@ -114,6 +114,10 @@ $('.ui-history').click(() => {
   }
 })
 
+$('#metamask').click(function () {
+  console.error('~~~~ connect_wallet')
+})
+
 function checkHistoryList () {
   if ($('#history-list').children().length > 0) {
     $('.pagination').show()
