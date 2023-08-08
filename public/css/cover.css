@@ -7,7 +7,7 @@
 a,
 a:focus,
 a:hover {
-    color: #fff;
+    color: #000;
 }
 /* Custom default button */
 
@@ -28,35 +28,43 @@ html {
 }
 html,
 body {
-    background-color: #333;
+    background-color: #fff;
 }
 body {
     min-height: 100%;
-    color: #fff;
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    /*text-shadow: 0 1px 3px rgba(0, 0, 0, .5);*/
 }
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 
 .site-wrapper {
-    padding: 10px;
     display: table;
     width: 100%;
     height: 100vh;
     /* For at least Firefox */
     min-height: 100%;
-    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
 }
 .site-wrapper-inner {
-    display: table-cell;
-    vertical-align: middle;
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .cover-container {
     width: 100%;
-    padding-top: 80px;
+    /*padding-top: 80px;*/
     margin-right: auto;
     margin-left: auto;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.section{
+  flex: 1;
+  display: flex;
+  align-content: center;
 }
 /* Padding for spacing */
 
@@ -68,7 +76,7 @@ body {
  */
 
 .masthead {
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
     width: 100%;
@@ -80,7 +88,7 @@ body {
 }
 .masthead-nav {
     text-align: left;
-    max-width: 1000px;
+    max-width: 1250px;
     margin: 0 auto;
     padding-left: 10px;
     padding-right: 10px;
@@ -96,22 +104,19 @@ body {
     padding-left: 0;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
+    color: #000;
     /* IE8 proofing */
-    color: rgba(255, 255, 255, .75);
     border-bottom: 2px solid transparent;
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
     background-color: transparent;
     border-bottom-color: #a9a9a9;
-    border-bottom-color: rgba(255, 255, 255, .25);
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
-    color: #fff;
-    border-bottom-color: #fff;
+    color: #000;
 }
 @media (min-width: 768px) {
     .masthead-brand {
@@ -151,7 +156,7 @@ body {
 @media (min-width: 768px) {
     /* Pull out the header and footer */
     .masthead {
-        position: absolute;
+        /*position: absolute;*/
         top: 0;
         left: 0;
         width: 100% !important;
@@ -172,11 +177,11 @@ body {
         /* Must be percentage or pixels for horizontal alignment */
     }
 }
-@media (min-width: 992px) {
+@media (min-width: 1240px) {
     .masthead,
     .mastfoot,
     .cover-container {
-        width: 1000px;
+        width: 1230px;
     }
 }
 .section ul {
@@ -425,4 +430,93 @@ a.btn.btn-login-method > i.oauth-icon > img {
     width: 100%;
     height: 100%;
     line-height: inherit;
+}
+
+.mainContent{
+  width: 1250px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: "Helvetica";
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.header{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: 40px;
+}
+.bodyBox{
+  flex-grow: 1;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.lft{
+  display: flex;
+  align-content: center;
+}
+.lft span{
+  display: inline-block;
+  line-height: 88px;
+  color: #000000;
+  font-size: 34px;
+  font-weight: 700;
+}
+.lft img{
+  width: 88px;
+  height: 106px;
+}
+.titleBox{
+  /* Online Learning Plat */
+  width: 640px;
+  height: 269px;
+  top: 245px;
+  left: 100px;
+  font-family: "Helvetica";
+  color: #000000;
+  font-weight: 700;
+  font-size: 68px;
+  text-align: left;
+}
+.btnRht{
+  background: #FCAA23;
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+  text-decoration: none;
+  text-align: center;
+  padding: 20px 40px;
+  border-radius: 50px;
+  border: 0;
+}
+.BtmLft{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+}
+.lftBox{
+  display: flex;
+}
+.BtmRht{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.btnBgBox{
+  background: #FCAA23;
+  color: #000000;
+  font-weight: 700;
+  font-size: 24px;
+  font-style: normal;
+  text-decoration: none;
+  text-align: center;
+  padding: 30px 40px;
+  border-radius: 50px;
+  margin-top: 80px;
 }

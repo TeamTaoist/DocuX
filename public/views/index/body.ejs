@@ -16,7 +16,8 @@
                                 <a type="button" href="<%- serverURL %>/new" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> <%= __('New guest note') %></a>
                                 <% } %>
                                 <% if (authProviders.facebook || authProviders.twitter || authProviders.github || authProviders.bitbucket || authProviders.gitlab ||authProviders.mattermost || authProviders.dropbox || authProviders.google || authProviders.ldap || authProviders.saml || authProviders.oauth2 || authProviders.email || authProviders.wallet) { %>
-                                <button class="btn btn-sm btn-success ui-signin" data-toggle="modal" data-target=".signin-modal"><%= __('Sign In') %></button>
+<!--                                <button class="btn btn-sm btn-success ui-signin" data-toggle="modal" data-target=".signin-modal"><%= __('Sign In') %></button>-->
+                                        <button class="btnRht" id="connectWallet">connect wallet</button>
                                 <% } %>
                             </div>
                             <form name="exportNoteData" action="<%- serverURL %>/me/export" method="post" style="display: none;">
@@ -42,50 +43,23 @@
             </div>
 
             <div id="home" class="section"<% if(signin) { %> style="display:none;"<% } %>>
-                <div class="inner cover">
-                    <h1 class="cover-heading"><i class="fa fa-file-text"></i> CodiMD</h1>
-                    <p class="lead">
-                        <%= __('Best way to write and share your knowledge in markdown.') %>
-                    </p>
-                    <button class="btn btn-lg btn-success ui-signin" id="connectWallet">connect wallet</button>
-                    <% if (infoMessage && infoMessage.length > 0) { %>
-                    <div class="alert alert-info" style="max-width: 400px; margin: 0 auto;"><%= infoMessage %></div>
-                    <% } %>
-                    <% if (errorMessage && errorMessage.length > 0) { %>
-                    <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto;"><%= errorMessage %></div>
-                    <% } %>
-                    <% if (authProviders.facebook || authProviders.twitter || authProviders.github|| authProviders.bitbucket || authProviders.gitlab || authProviders.mattermost || authProviders.dropbox || authProviders.google || authProviders.ldap || authProviders.saml || authProviders.oauth2 || authProviders.email || authProviders.wallet) { %>
-                    <span class="ui-signin">
-                        <br>
-                        <a type="button" class="btn btn-lg btn-success ui-signin" data-toggle="modal" data-target=".signin-modal" style="min-width: 200px;"><%= __('Sign In') %></a>
-                    </span>
-                    <span class="ui-or"><%= __('or') %></span>
-                    <% } %>
-                    <span class="ui-signin">
-                        <a type="button" href="<%- serverURL %>/features" class="btn btn-lg btn-primary" style="min-width: 200px;"><%= __('Explore all features') %></a>
-                        <br>
-                        <br>
-                        <img src="<%- serverURL %>/screenshot.png" class="screenshot ui-signin">
-                    </span>
-                    <div class="lead row" style="width: 90%; margin: 0 auto;">
-                        <div class="col-md-4 inner">
-                            <a href="<%- serverURL %>/features#Share-Notes">
-                                <i class="fa fa-bolt fa-3x"></i>
-                                <h4><%= __('Collaborate with URL') %></h4>
-                            </a>
+<!--                <div class="inner cover">-->
+
+<!--                    <button class="btn btn-lg btn-success ui-signin" id="connectWallet">connect wallet</button>-->
+<!--                </div>-->
+                <div class="bodyBox">
+                    <div class="BtmLft">
+                        <div class="titleBox">
+                            Web3 multi-person
+                            Collaborative
+                            document tool
                         </div>
-                        <div class="col-md-4 inner">
-                            <a href="<%- serverURL %>/features#MathJax">
-                                <i class="fa fa-bar-chart fa-3x"></i>
-                                <h4><%= __('Support charts and MathJax') %></h4>
-                            </a>
+                        <div class="lftBox">
+                            <div class="btnBgBox">Get STARTED</div>
                         </div>
-                        <div class="col-md-4 inner">
-                            <a href="<%- serverURL %>/features#Slide-Mode">
-                                <i class="fa fa-tv fa-3x"></i>
-                                <h4><%= __('Support slide mode') %></h4>
-                            </a>
-                        </div>
+                    </div>
+                    <div class="BtmRht">
+                        <img src="<%- serverURL %>/bg.png" alt="">
                     </div>
                 </div>
             </div>
@@ -154,12 +128,6 @@
                         <option value="id">Bahasa Indonesia</option>
                         <option value="sr">српски</option>
                     </select>
-                    <p>
-                        <%- __('Powered by %s', '<a href="https://github.com/hackmdio/codimd">CodiMD</a>') %> | <a href="<%- serverURL %>/s/release-notes" target="_blank" rel="noopener"><%= __('Releases') %></a> | <a href="<%- sourceURL %>" target="_blank" rel="noopener"><%= __('Source Code') %></a><% if(privacyStatement) { %> | <a href="<%- serverURL %>/s/privacy" target="_blank" rel="noopener"><%= __('Privacy') %></a><% } %><% if(termsOfUse) { %> | <a href="<%- serverURL %>/s/terms-of-use" target="_blank" rel="noopener"><%= __('Terms of Use') %></a><% } %>
-                    </p>
-                    <h6 class="social-foot">
-                        <%- __('Follow us on %s and %s.', '<a href="https://github.com/hackmdio/CodiMD" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a>, <a href="https://gitter.im/hackmdio/hackmd" target="_blank" rel="noopener"><i class="fa fa-comments"></i> Gitter</a>', '<a href="https://poeditor.com/join/project/q0nuPWyztp" target="_blank" rel="noopener"><i class="fa fa-globe"></i> POEditor</a>') %>
-                    </h6>
                     <% if(privacyPolicyURL && privacyPolicyURL.length > 0) { %><p><a href="<%- privacyPolicyURL %>"><%= __('Privacy Policy') %></a></p><% } %>
                 </div>
             </div>
