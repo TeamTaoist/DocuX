@@ -3,21 +3,27 @@
         <div class="cover-container">
 
             <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand"></h3>
+                <div class="inner header">
+                    <div class="lft">
+                        <img src="<%- serverURL %>/logo.PNG" alt="">
+                        <span>DocuX</span>
+                    </div>
                     <nav>
                         <ul class="nav masthead-nav">
-                            <li class="ui-home<% if(!signin) { %> active<% } %>"><a href="#"><%= __('Intro') %></a>
+<!--                            <li class="ui-home<% if(!signin) { %> active<% } %>"><a href="#"><%= __('Intro') %></a>-->
                             </li>
-                            <li class="ui-history<% if(signin) { %> active<% } %>"><a href="#"><%= __('History') %></a>
+<!--                            <li class="ui-history<% if(signin) { %> active<% } %>"><a href="#"><%= __('History') %></a>-->
+                            <li class="ui-history<% if(signin) { %> active<% } %>"><a href="#">Workspace</a>
                             </li>
-                            <div class="ui-signin" style="float: right; margin-top: 8px;<% if(signin) { %> display: none;<% } %>">
+                            <div class="ui-signin" style="float: right;<% if(signin) { %> display: none;<% } %>">
                                 <% if (allowAnonymous) { %>
                                 <a type="button" href="<%- serverURL %>/new" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> <%= __('New guest note') %></a>
                                 <% } %>
                                 <% if (authProviders.facebook || authProviders.twitter || authProviders.github || authProviders.bitbucket || authProviders.gitlab ||authProviders.mattermost || authProviders.dropbox || authProviders.google || authProviders.ldap || authProviders.saml || authProviders.oauth2 || authProviders.email || authProviders.wallet) { %>
 <!--                                <button class="btn btn-sm btn-success ui-signin" data-toggle="modal" data-target=".signin-modal"><%= __('Sign In') %></button>-->
-                                        <button class="btnRht" id="connectWallet">connect wallet</button>
+                                        <button class="btnRht" id="connectWallet" <% if(signin) { %> style="display:none;"<% } %>>connect wallet</button>
+
+
                                 <% } %>
                             </div>
                             <form name="exportNoteData" action="<%- serverURL %>/me/export" method="post" style="display: none;">

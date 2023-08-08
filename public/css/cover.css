@@ -95,10 +95,11 @@ body {
 }
 .masthead-nav > li {
     display: inline-block;
+  margin-right: 20px;
 }
-.masthead-nav > li + li {
-    margin-left: 20px;
-}
+/*.masthead-nav > li + li {*/
+/*    margin-right: 20px;*/
+/*}*/
 .masthead-nav > li > a {
     padding-right: 0;
     padding-left: 0;
@@ -126,7 +127,7 @@ body {
         float: none;
     }
     .inner {
-        padding: 30px 25px;
+        padding: 30px auto;
     }
 }
 /*
@@ -467,7 +468,6 @@ a.btn.btn-login-method > i.oauth-icon > img {
 }
 .lft img{
   width: 88px;
-  height: 106px;
 }
 .titleBox{
   /* Online Learning Plat */
@@ -489,7 +489,7 @@ a.btn.btn-login-method > i.oauth-icon > img {
   font-style: normal;
   text-decoration: none;
   text-align: center;
-  padding: 20px 40px;
+  padding: 10px 40px;
   border-radius: 50px;
   border: 0;
 }
