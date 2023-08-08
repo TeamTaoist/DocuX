@@ -69,7 +69,7 @@ body {
 /* Padding for spacing */
 
 .inner {
-    padding: 10px;
+    padding: 10px 0;
 }
 /*
  * Header
@@ -495,13 +495,12 @@ a.btn.btn-login-method > i.oauth-icon > img {
 }
 .lft span{
   display: inline-block;
-  line-height: 88px;
   color: #000000;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 700;
 }
 .lft img{
-  width: 88px;
+  width: 80px;
 }
 .titleBox{
   /* Online Learning Plat */
@@ -568,4 +567,8 @@ a.btn.btn-login-method > i.oauth-icon > img {
 
 .sec2{
   flex-direction: column;
+}
+.selectedBox{
+  background: rgba(0,0,0,0);
+  border: 0;
 }
