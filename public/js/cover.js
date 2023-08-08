@@ -44,7 +44,7 @@ const options = {
 <!--              <div class="ui-history-pin fa fa-thumb-tack fa-fw"></div>-->
               <div class="ui-history-close fa fa-close fa-fw" data-toggle="modal" data-target=".delete-history-modal"></div>
 <!--              <div class="content">-->
-                    <div class="TopBg"><img src="/fengmian.png" alt=""></div>
+                    <div class="TopBg"></div>
 
                 <h4 class="text"></h4>
 <!--                <p>-->
