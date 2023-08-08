@@ -661,3 +661,15 @@ div[contenteditable]:empty:not(:focus):before{
         height: auto !important;
     }
 }
+.logoTop{
+  width: 35px;
+}
+.navbar-brand{
+  display: flex;
+  align-items: center;
+  color: #000!important;
+  margin-right: 20px;
+}
+.navbar-brand img{
+  margin-right: 8px;
+}
