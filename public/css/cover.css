@@ -251,6 +251,13 @@ input {
   border-radius: 10px;
   border: 1px solid rgba(150, 190, 236, 1);
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list li .TopBg img{
+  max-width:100%;
+  max-height: 100%;
 }
 .list li .item .text {
   font-size: 20px;
