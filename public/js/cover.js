@@ -38,7 +38,7 @@ const options = {
   valueNames: ['id', 'text', 'timestamp', 'fromNow', 'time', 'tags', 'pinned'],
   item: `<li>
 
-<!--          <span class="id" style="display:none;"></span>-->
+          <span class="id" style="display:none;"></span>
           <a href="#">
             <div class="item">
 <!--              <div class="ui-history-pin fa fa-thumb-tack fa-fw"></div>-->
