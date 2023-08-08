@@ -28,7 +28,6 @@ import List from 'list.js'
 import unescapeHTML from 'lodash/unescape'
 import { ethers } from 'ethers'
 import { SiweMessage } from 'siwe'
-import axios from 'axios'
 
 require('./locale')
 
