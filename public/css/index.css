@@ -673,3 +673,17 @@ div[contenteditable]:empty:not(:focus):before{
 .navbar-brand img{
   margin-right: 8px;
 }
+
+.online{
+  border: 2px solid rgba(150, 190, 236, 1);
+  padding:0 10px;
+  border-radius: 5px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  margin-top: -8px;
+}
+.online img{
+  height: 30px;
+  margin-right: 10px;
+}
