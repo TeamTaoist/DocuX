@@ -491,7 +491,7 @@ a.btn.btn-login-method > i.oauth-icon > img {
 }
 .lft{
   display: flex;
-  align-content: center;
+  align-items: center;
 }
 .lft span{
   display: inline-block;
@@ -526,6 +526,7 @@ a.btn.btn-login-method > i.oauth-icon > img {
   padding: 10px 40px;
   border-radius: 50px;
   border: 0;
+  margin-top: 20px;
 }
 .BtmLft{
   display: flex;
@@ -550,7 +551,7 @@ a.btn.btn-login-method > i.oauth-icon > img {
   font-style: normal;
   text-decoration: none;
   text-align: center;
-  padding: 30px 40px;
+  padding: 15px 40px;
   border-radius: 50px;
   margin-top: 80px;
 }
@@ -560,7 +561,7 @@ a.btn.btn-login-method > i.oauth-icon > img {
 }
 .topBtn{
   background: #FCAA23;
-  padding: 10px 30px;
+  padding: 5px 20px;
   border-radius: 40px;
   font-weight: 700;
 }
