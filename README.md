@@ -13,6 +13,8 @@ Please try it [https://docux.lol](https://docux.lol)
 
 It's built on top of [CodiMD](https://github.com/hackmdio/codimd), which is one of the best collaboration tools.
 
+![](https://github.com/TeamTaoist/DocuX/blob/main/screenshot.png?raw=true)
+
 ## Browser Support
 
 DocuX is a service that runs on Node.js, while users use the service through browsers. We support your users using the following browsers: 
