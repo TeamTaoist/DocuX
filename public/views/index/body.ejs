@@ -30,10 +30,11 @@
                                 <input type="hidden" name="_csrf" value="<%- csrfToken %>">
                             </form>
                             <div class="ui-signout" style="float: right; margin-top: 8px;<% if(!signin) { %> display: none;<% } %>">
-                                <a type="button" href="<%- serverURL %>/new" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> <%= __('New note') %></a>
+                                <a type="button" href="<%- serverURL %>/new" class="topBtn"><i class="fa fa-plus"></i> <%= __('New note') %></a>
                                 <span class="ui-profile dropdown pull-right">
                                     <button id="profileLabel" class="btn btn-sm btn-link ui-profile-label" style="padding-right: 0;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="ui-avatar" width="20" height="20"><span class="hidden-xs hidden-sm">&ensp;<span class="ui-name"></span></span>&ensp;<i class="fa fa-caret-down"></i>
+                                        <img src="<%- serverURL %>/avatar.png" alt="">
+<!--                                        <img class="ui-avatar" width="20" height="20"><span class="hidden-xs hidden-sm">&ensp;<span class="ui-name"></span></span>&ensp;<i class="fa fa-caret-down"></i>-->
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="profileLabel">
                                         <li><a href="<%- serverURL %>/features"><i class="fa fa-dot-circle-o fa-fw"></i> <%= __('Features') %></a></li>
@@ -70,33 +71,33 @@
                 </div>
             </div>
 
-            <div id="history" class="section"<% if(!signin) { %> style="display:none;"<% } %>>
+            <div id="history" class="section sec2"<% if(!signin) { %> style="display:none;"<% } %>>
                 <div class="ui-signin"<% if(signin) { %> style="display:none;"<% } %>>
                     <p><%= __('Below is the history from browser') %></p>
                 </div>
                 <br>
-                <form class="form-inline">
-                    <div class="form-group" style="vertical-align: bottom;">
-                        <input class="form-control ui-use-tags" placeholder="<%= __('Select tags...') %>" />
-                    </div>
-                    <div class="form-group">
-                        <input class="search form-control" placeholder="<%= __('Search keyword...') %>" />
-                    </div>
-                    <a href="#" class="sort btn btn-default" data-sort="text" title="<%= __('Sort by title') %>">
-                    <%= __('Title') %>
-                    </a>
-                    <a href="#" class="sort btn btn-default" data-sort="timestamp" title="<%= __('Sort by time') %>">
-                    <%= __('Time') %>
-                    </a>
-                    <span class="hidden-xs hidden-sm">
-                        <a href="#" class="btn btn-default ui-save-history" title="<%= __('Export history') %>"><i class="fa fa-save"></i></a>
-                        <span class="btn btn-default btn-file ui-open-history" title="<%= __('Import history') %>">
-                            <i class="fa fa-folder-open-o"></i><input type="file" />
-                        </span>
-                    <a href="#" class="btn btn-default ui-clear-history" title="<%= __('Clear history') %>" data-toggle="modal" data-target=".delete-history-modal"><i class="fa fa-trash-o"></i></a>
-                    </span>
-                    <a href="#" class="btn btn-default ui-refresh-history" title="<%= __('Refresh history') %>"><i class="fa fa-refresh"></i></a>
-                </form>
+<!--                <form class="form-inline">-->
+<!--                    <div class="form-group" style="vertical-align: bottom;">-->
+<!--                        <input class="form-control ui-use-tags" placeholder="<%= __('Select tags...') %>" />-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <input class="search form-control" placeholder="<%= __('Search keyword...') %>" />-->
+<!--                    </div>-->
+<!--                    <a href="#" class="sort btn btn-default" data-sort="text" title="<%= __('Sort by title') %>">-->
+<!--                    <%= __('Title') %>-->
+<!--                    </a>-->
+<!--                    <a href="#" class="sort btn btn-default" data-sort="timestamp" title="<%= __('Sort by time') %>">-->
+<!--                    <%= __('Time') %>-->
+<!--                    </a>-->
+<!--                    <span class="hidden-xs hidden-sm">-->
+<!--                        <a href="#" class="btn btn-default ui-save-history" title="<%= __('Export history') %>"><i class="fa fa-save"></i></a>-->
+<!--                        <span class="btn btn-default btn-file ui-open-history" title="<%= __('Import history') %>">-->
+<!--                            <i class="fa fa-folder-open-o"></i><input type="file" />-->
+<!--                        </span>-->
+<!--                    <a href="#" class="btn btn-default ui-clear-history" title="<%= __('Clear history') %>" data-toggle="modal" data-target=".delete-history-modal"><i class="fa fa-trash-o"></i></a>-->
+<!--                    </span>-->
+<!--                    <a href="#" class="btn btn-default ui-refresh-history" title="<%= __('Refresh history') %>"><i class="fa fa-refresh"></i></a>-->
+<!--                </form>-->
                 <h4 class="ui-nohistory" style="display:none;">
                     <%= __('No history') %>
                 </h4>

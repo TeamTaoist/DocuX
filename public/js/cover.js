@@ -36,22 +36,24 @@ require('../css/site.css')
 
 const options = {
   valueNames: ['id', 'text', 'timestamp', 'fromNow', 'time', 'tags', 'pinned'],
-  item: `<li class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-          <span class="id" style="display:none;"></span>
+  item: `<li>
+
+<!--          <span class="id" style="display:none;"></span>-->
           <a href="#">
             <div class="item">
-              <div class="ui-history-pin fa fa-thumb-tack fa-fw"></div>
+<!--              <div class="ui-history-pin fa fa-thumb-tack fa-fw"></div>-->
               <div class="ui-history-close fa fa-close fa-fw" data-toggle="modal" data-target=".delete-history-modal"></div>
-              <div class="content">
+<!--              <div class="content">-->
+                   <img src="<%- serverURL %>/fengmian.png" alt="" class="TopBg">
                 <h4 class="text"></h4>
-                <p>
-                  <i><i class="fa fa-clock-o"></i> visited </i><i class="fromNow"></i>
-                  <br>
-                  <i class="timestamp" style="display:none;"></i>
-                  <i class="time"></i>
-                </p>
-                <p class="tags"></p>
-              </div>
+<!--                <p>-->
+<!--                  <i><i class="fa fa-clock-o"></i> visited </i><i class="fromNow"></i>-->
+<!--                  <br>-->
+<!--                  <i class="timestamp" style="display:none;"></i>-->
+<!--                  <i class="time"></i>-->
+<!--                </p>-->
+<!--                <p class="tags"></p>-->
+<!--              </div>-->
             </div>
           </a>
         </li>`,
