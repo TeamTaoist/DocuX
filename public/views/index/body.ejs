@@ -11,10 +11,10 @@
                     <nav>
                         <ul class="nav masthead-nav">
 <!--                            <li class="ui-home<% if(!signin) { %> active<% } %>"><a href="#"><%= __('Intro') %></a>-->
-                            </li>
+<!--                            </li>-->
 <!--                            <li class="ui-history<% if(signin) { %> active<% } %>"><a href="#"><%= __('History') %></a>-->
-                            <li class="ui-history<% if(signin) { %> active<% } %>"><a href="#">Workspace</a>
-                            </li>
+<!--                            <li class="ui-history" style="<% if(!signin) { %> display: none;<% } %>"><a href="#">Workspace</a>-->
+<!--                            </li>-->
                             <div class="ui-signin" style="float: right;<% if(signin) { %> display: none;<% } %>">
                                 <% if (allowAnonymous) { %>
                                 <a type="button" href="<%- serverURL %>/new" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> <%= __('New guest note') %></a>
